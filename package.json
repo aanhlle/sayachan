@@ -1,0 +1,19 @@
+{
+  "name": "vocabspreader",
+  "version": "1.0.0",
+  "description": "spread vocab in discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vocab",
+    "spreader"
+  ],
+  "author": "aanhlle",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "read-excel-file": "^5.0.0"
+  }
+}
