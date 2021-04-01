@@ -72,7 +72,7 @@ async function outputExcelList(message, filename) {
       let randomRowIdx = listIdxtoSend[i];
       if (!stop) {
         await message.channel.send(
-          `${rowsArray[randomRowIdx].stt}.\t\`${rowsArray[randomRowIdx].word}\``
+          `${rowsArray[randomRowIdx].stt}.\t**${rowsArray[randomRowIdx].word}**`
         );
 
         await wait(5);
