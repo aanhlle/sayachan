@@ -72,17 +72,23 @@ async function outputExcelList(message, filename) {
       let randomRowIdx = listIdxtoSend[i];
       if (!stop) {
         await message.channel.send(
-          `${rowsArray[randomRowIdx].stt}\t${rowsArray[randomRowIdx].word}`
+          `${rowsArray[randomRowIdx].stt}.\t\`${rowsArray[randomRowIdx].word}\``
         );
+
         await wait(5);
-        await message.channel.send(
-          `${rowsArray[randomRowIdx].reading}\n${rowsArray[randomRowIdx].defintion}`
-        );
+
+        if (rowsArray[randomRowIdx].reading) {
+          await message.channel.send(
+            `${rowsArray[randomRowIdx].reading}\n${rowsArray[randomRowIdx].defintion}`
+          );
+        } else
+          await message.channel.send(`${rowsArray[randomRowIdx].defintion}`);
+
         await wait(1);
       }
     }
   } catch (error) {
-    console.error("Couldn't read excel list" + error.message);
+    console.error(error.message);
   }
 }
 
