@@ -62,22 +62,21 @@ async function outputExcelList(message, filename) {
 
     const excelFile = await readXlsxFile(`./vocablist/${filename}`, { schema });
 
-    //        `${row.stt}\t${row.word}\t${row.reading}\n${row.defintion}`
+    //Each row in rows has: `${row.stt}\t${row.word}\t${row.reading}\n${row.defintion}`
 
     const rowsArray = excelFile.rows;
 
     const listIdxtoSend = randomListIdx(rowsArray.length);
-    console.log(listIdxtoSend);
 
     for (let i = 0; i < rowsArray.length; i++) {
-      let randomRow = listIdxtoSend[i];
+      let randomRowIdx = listIdxtoSend[i];
       if (!stop) {
         await message.channel.send(
-          `${rowsArray[randomRow].stt}\t${rowsArray[randomRow].word}`
+          `${rowsArray[randomRowIdx].stt}\t${rowsArray[randomRowIdx].word}`
         );
         await wait(5);
         await message.channel.send(
-          `${rowsArray[randomRow].reading}\n${rowsArray[randomRow].defintion}`
+          `${rowsArray[randomRowIdx].reading}\n${rowsArray[randomRowIdx].defintion}`
         );
         await wait(1);
       }
@@ -98,6 +97,5 @@ function randomListIdx(listnums) {
   while (s.size < listnums) {
     s.add(Math.floor(Math.random() * listnums));
   }
-
   return [...s];
 }
