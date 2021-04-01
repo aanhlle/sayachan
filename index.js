@@ -1,5 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
+/* for debug
+const { DJS_TOKEN } = require("./config.json"); */
 const prefix = "!";
 
 const client = new Discord.Client();
@@ -93,4 +95,4 @@ client.on("message", (message) => {
   }
 });
 
-client.login(process.env.DJS_TOKEN);
+client.login(process.env.DJS_TOKEN || DJS_TOKEN);

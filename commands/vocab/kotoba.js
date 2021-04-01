@@ -66,12 +66,18 @@ async function outputExcelList(message, filename) {
 
     const rowsArray = excelFile.rows;
 
+    const listIdxtoSend = randomListIdx(rowsArray.length);
+    console.log(listIdxtoSend);
+
     for (let i = 0; i < rowsArray.length; i++) {
+      let randomRow = listIdxtoSend[i];
       if (!stop) {
-        await message.channel.send(`${rowsArray[i].stt}\t${rowsArray[i].word}`);
+        await message.channel.send(
+          `${rowsArray[randomRow].stt}\t${rowsArray[randomRow].word}`
+        );
         await wait(5);
         await message.channel.send(
-          `${rowsArray[i].reading}\n${rowsArray[i].defintion}`
+          `${rowsArray[randomRow].reading}\n${rowsArray[randomRow].defintion}`
         );
         await wait(1);
       }
@@ -86,3 +92,12 @@ const wait = function (sec) {
     setTimeout(resolve, sec * 1000);
   });
 };
+
+function randomListIdx(listnums) {
+  let s = new Set();
+  while (s.size < listnums) {
+    s.add(Math.floor(Math.random() * listnums));
+  }
+
+  return [...s];
+}
