@@ -16,7 +16,7 @@ Just fork the source and deploy it to your server (via Heroku or similar deploym
 
 `!kotoba mimi stop` to stop.
 
-When a command stops working you can type `!reload` to clear Discord cache and reload the command.
+When a command stops working you can type `!reload <command name>` to clear Discord cache and reload the command.
 
 Type `!help` to see Saya's full commands.
 
