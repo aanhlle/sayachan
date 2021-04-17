@@ -3,6 +3,6 @@ module.exports = {
   description: "Jikoshoukai!",
   cooldown: 5,
   execute(message) {
-    message.channel.send("Xin chào! (✿✪‿✪｡)ﾉｺﾝﾁｬ♡. Hãy giới thiệu bản thân bạn tại #自己紹介ーgiới-thiệu-bản-thân nhé!");
+    message.channel.send("Xin chào! (✿✪‿✪｡)ﾉｺﾝﾁｬ♡. Hãy giới thiệu bản thân bạn tại <#553593769220505601> nhé!");
   },
 };
